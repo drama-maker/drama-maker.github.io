@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
+    <link rel="icon" href="/icons/FizzMingle-icon.png" type="image/png">
+    <link rel="stylesheet" href="/fizzmingle.css">
+    <title>FizzMingle</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="/fizzmingle.js"></script>
+</head>
+<body>
+    <section id="login">
+        <img src="/icons/FizzMingle-logo.png" alt="FizzMingle logo">
+        <h2>FizzMingle</h2>
+        <p>Bubbles in a drink, with the social aspect of mingling.</p>  
+        <div class="social-login">
+            <a href="#" target="_blank">
+                <img src="/icons/google.png" alt="Google Login">
+                <p>Continue with Google</p>
+            </a>
+            <a href="#" target="_blank">
+                <img src="/icons/apple-logo.png" alt="Apple Login">
+                <p>Continue with Apple</p>
+            </a>
+        </div>
+        <p>or</p>
+        <form>
+            <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Email address" required>
+            <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+            <p id="remember-me">
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember">Remember me</label>
+              </p>
+            <input type="submit" value="Continue">
+        </form>
+        <p>Don't have an account? <a id="register-link" href="#register">Register here</a></p>
+    </section>
+
+    <section id="register">
+        <img src="/icons/FizzMingle-logo.png" alt="FizzMingle logo">
+        <h2>FizzMingle</h2>
+        <p>Bubbles in a drink, with the social aspect of mingling.</p>
+        <div class="social-login">
+            <a href="#" target="_blank">
+                <img src="/icons/google.png" alt="Google Login">
+                <p>Continue with Google</p>
+            </a>
+            <a href="#" target="_blank">
+                <img src="/icons/apple-logo.png" alt="Apple Login">
+                <p>Continue with Apple</p>
+            </a>
+        </div>
+        <p>or</p>
+        <form>
+            <label for="register-email">Email:</label>
+            <input type="email" id="register-email" name="email" placeholder="Email address" required>
+            <label for="register-password">Create password:</label>
+            <input type="password" id="register-password" name="password" placeholder="Password" required minlength="8">
+            <p id="remember-me">
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember">Remember me</label>
+              </p>
+            <input type="submit" value="Continue">
+        </form>
+        <p>Already have an account? <a id="login-link" href="#login">Login here</a></p>
+    </section>
+</body>
+</html>
