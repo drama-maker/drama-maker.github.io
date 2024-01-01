@@ -89,8 +89,8 @@ form,
   font-weight: var(--font-weight-light);
 }
 
-#remember-me input {
-  margin-right: 8px;
+#remember-me label {
+  float: left;
 }
 
 input {
