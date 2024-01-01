@@ -146,11 +146,6 @@ a {
   color: var(--black);
 }
 
-a:hover,
-a:active {
-  color: var(--purple);
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
