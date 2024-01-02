@@ -255,7 +255,7 @@ nav {
 }
 
 .about-image img {
-    max-height: 450px;
+    max-height: 350px;
 }
 
 .about-image::before,
