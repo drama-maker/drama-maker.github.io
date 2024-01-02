@@ -255,7 +255,9 @@ nav {
 }
 
 .about-image img {
-    max-height: 350px;
+    max-height: 450px;
+    max-width: 360px;
+    object-fit: cover;
 }
 
 .about-image::before,
