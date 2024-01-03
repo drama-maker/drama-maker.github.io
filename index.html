@@ -58,17 +58,7 @@
                     <p class="first-letter"><strong>I'm Hanna.</strong></p>
                     <p>I have a deep passion for both drawing and programming. Beyond my technical pursuits, I also have a keen interest in genetic manipulation. I find joy in learning new things.</p>
                 </div>
-                <div class="column">
-                    <pre>
-                        Currently working on:
-                        img container on page,
-                        projects made site,
-                        uploading made projects,
-                        uploading art,
-                        studying dna,
-                        working the brain...
-                    </pre>
-                </div>
+                <div class="column" id="slideshow"></div>
             </div>
         </div>
     </section>
@@ -170,6 +160,23 @@
             });
         }
         });
+
+        const imageUrls = [
+        '/images/Iced_Monster_Land.png',
+        '/images/jelly-background.jpg',
+        '/images/flower-background.jpg',
+        ];
+    
+        const slideshowContainer = document.getElementById('slideshow');
+        let currentImageIndex = 0;
+    
+        function showNextImage() {
+            slideshowContainer.innerHTML = `<img src="${imageUrls[currentImageIndex]}" alt="Slideshow Image">`;
+            currentImageIndex = (currentImageIndex + 1) % imageUrls.length;
+        }
+        const intervalTime = 7000;
+    
+        setInterval(showNextImage, intervalTime);
     </script>
   </body>
 </html>
