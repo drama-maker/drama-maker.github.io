@@ -248,42 +248,6 @@ nav {
     padding: 120px 0;
 }
 
-.about-image {
-    text-align: center;
-    position: relative;
-    max-height: 450px;
-}
-
-.about-image img {
-    max-height: 450px;
-    max-width: 360px;
-    object-fit: cover;
-}
-
-.about-image::before,
-.about-image::after {
-    content: "";
-    position: absolute;
-    width: 320px;
-    height: 550px;
-    max-width: 100%;
-    max-height: 100%;
-}
-
-.about-image::before {
-    border: 20px solid var(--d_pink);
-    top: -35px;
-    left: -80px;
-    z-index: -2;
-}
-
-.about-image::after {
-    background-color: var(--pink);
-    top: 35px;
-    right: -80px;
-    z-index: -1;
-}
-
 .about-text p.first-letter::first-letter {
     color: var(--pink);
     font-size: 30px;
