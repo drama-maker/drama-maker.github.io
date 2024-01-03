@@ -93,6 +93,7 @@ form,
 
 #r_text {
   float: left;
+  font-weight: bold;
 }
 
 input {
