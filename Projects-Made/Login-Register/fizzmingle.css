@@ -91,6 +91,10 @@ form,
   margin-right: 8px;
 }
 
+#r_text {
+  float: left;
+}
+
 input {
   display: block;
   width: 100%;
