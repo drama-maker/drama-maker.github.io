@@ -254,7 +254,7 @@ nav {
 }
 
 #slideshow {
-    width: 400px;
+    height: 100px;
 }
 
 @media screen and (max-width: 768px) {
