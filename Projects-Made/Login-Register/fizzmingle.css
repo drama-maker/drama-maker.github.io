@@ -79,7 +79,7 @@ form,
 .social-login {
   text-align: left;
 }
-#remember-me {
+span {
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -93,7 +93,6 @@ form,
 }
 
 #r_text {
-  float: left;
   font-weight: bold;
 }
 
