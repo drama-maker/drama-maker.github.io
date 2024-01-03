@@ -88,10 +88,6 @@ span {
   font-weight: var(--font-weight-light);
 }
 
-#remember-me input {
-  margin-right: 8px;
-}
-
 #r_text {
   font-weight: bold;
 }
