@@ -58,7 +58,7 @@
                     <p class="first-letter"><strong>I'm Hanna.</strong></p>
                     <p>I have a deep passion for both drawing and programming. Beyond my technical pursuits, I also have a keen interest in genetic manipulation. I find joy in learning new things.</p>
                 </div>
-                <div class="column" id="slideshow"></div>
+                <div class="column" id="slideshow" title="Click to see my art gallery."></div>
             </div>
         </div>
     </section>
@@ -68,24 +68,24 @@
         <div class="container">
             <div class="columns-container columns-4-container">
                 <div class="column">
-                    <img src="/images/cube-hole.svg" alt="cube img">
+                    <img src="/images/cube-hole.svg" alt="cube icon">
                     <h3 class="interest-name">Mechatronics</h3>
                     <p class="interest-text">I began my journey into robotics during the 5th grade of primary school, and I've been actively interested in it for two years. Currently, I am in the second grade of high school, where I have been studying mechatronics as a subject for the last two years. <a href="https://www.tinkercad.com/users/lpgJmxk0qV6" alt="Link to the profile on my Tinkercad account." target="_blank">Here are a few of the projects I've worked on</a></p>
                 </div>
                 <div class="column">
-                    <img src="/images/code.svg" alt="code tags img">
+                    <img src="/images/code.svg" alt="code tags icon">
                     <h3 class="interest-name">Web Development</h3>
                     <p class="interest-text">I embarked on my journey into web development back in the 8th grade, and my passion for it has only intensified over the years. Despite the absence of formal academic curriculum in my high school, I've dedicated the past four years to refining my web development skills independently. Currently a junior, <a href="/projects-made.html" alt="Link to a webpage holding my projects." target="_blank">here's a snapshot of some of the projects I've crafted during this period.</a></p>
                 </div>
                 <div class="column">
-                    <img src="/images/code-brackets.svg" alt="code brackets img">
+                    <img src="/images/code-brackets.svg" alt="code brackets icon">
                     <h3 class="interest-name">C++</h3>
                     <p class="interest-text">My venture into the realm of C++ programming started in the 1st grade of high school, and I've dedicated the 2 years to honing my skills in this language and similar ones like: python, java. Over the past two years, I've delved into various aspects of C++ development, and <a href="https://replit.com/@thinker-bu" alt="Link to my replit profile." target="_blank">here are a few highlights from my projects.</a></p>
                 </div>
                 <div class="column">
-                    <img src="/images/code-brackets.svg" alt="code brackets img">
+                    <img src="/images/dna.svg" alt="dna icon">
                     <h3 class="interest-name">Genes</h3>
-                    <p class="interest-text"><a href="#" alt="" target="_blank"></a></p>
+                    <p class="interest-text">Currently studing...<a href="#" alt="" target="_blank"></a></p>
                 </div>
             </div>
         </div>
@@ -176,7 +176,7 @@
         let currentImageIndex = 0;
         
         function showNextImage() {
-            slideshowContainer.innerHTML = `<img src="${imageUrls[currentImageIndex]}" alt="Slideshow Image" style="height: 100px;">`;
+            slideshowContainer.innerHTML = `<img src="${imageUrls[currentImageIndex]}" alt="Slideshow Image" style="height: 250px;">`;
             currentImageIndex = (currentImageIndex + 1) % imageUrls.length;
         }
         
