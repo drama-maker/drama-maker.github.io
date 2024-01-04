@@ -380,27 +380,27 @@ nav {
     margin-bottom: 40px;
 }
 
-.contact-form {
+#contactForm {
     width: 50%;
     margin: 0 auto;
 }
 
-.contact-form label,
-.contact-form input,
-.contact-form textarea {
+#contactForm label,
+#contactForm input,
+#contactForm textarea {
     display: block;
     width: 100%;
 }
 
-.contact-form input,
-.contact-form textarea {
+#contactForm input,
+#contactForm textarea {
     border: 3px solid var(--d_pink);
     border-radius: 0;
     padding: 8px 15px;
     margin-bottom: 15px;
 }
 
-.contact-form label {
+#contactForm label {
     padding-bottom: 5px;
 }
 
@@ -423,7 +423,7 @@ nav {
 }
 
 @media screen and (max-width: 768px) {
-    .contact-form {
+    #contactForm {
         width: 100%;
     }
 }
