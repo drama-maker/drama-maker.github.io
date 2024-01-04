@@ -107,3 +107,8 @@ Create a random password generator that also provides a strength indicator based
 
 Dynamic Typing Speed Test:
 Create a dynamic typing speed test that evaluates users' typing speed
+
+Note-Taking App: Create a simple note-taking application that allows users to create, edit, and delete notes.
+
+Weather-based Clothing Recommender: Create an app that suggests clothing based on the weather forecast for
+
