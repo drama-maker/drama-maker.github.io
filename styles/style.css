@@ -381,7 +381,7 @@ nav {
 }
 
 .contact-section p {
-    text-align: center;
+    align-items: center;
     margin-bottom: 20px;
 }
 
