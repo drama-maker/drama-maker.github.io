@@ -29,7 +29,7 @@
             width: 100%;
             height: auto;
             transition: transform 0.3s;
-            display: block;
+            display: inline;
         }
 
         .partial-enlarge-on-hover:hover img {
@@ -46,6 +46,7 @@
             box-sizing: border-box;
             opacity: 0;
             transition: opacity 0.3s;
+            text-align: center;
         }
 
         .image-container:hover .image-overlay {
@@ -79,6 +80,10 @@
 
         .enlarge-on-hover:hover .image-overlay {
             opacity: 1;
+        }
+        
+        .image-overlay p {
+            margin: 0;
         }
     </style>
 </head>
