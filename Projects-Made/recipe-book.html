@@ -115,9 +115,6 @@
         function toggleRecipe(recipeId) {
             var ulElement = document.getElementById(recipeId);
             var pElement = document.getElementById(recipeId + '-description');
-
-            ulElement.style.display = 'none';
-            pElement.style.display = 'none';
             
             if (ulElement.style.display === 'none') {
                 ulElement.style.display = 'block';
