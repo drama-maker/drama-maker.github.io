@@ -380,8 +380,8 @@ nav {
     margin-bottom: 10px;
 }
 
-.contact-section p {
-    align-items: center;
+.contact-paragraph {
+    text-align: center;
     margin-bottom: 20px;
 }
 
