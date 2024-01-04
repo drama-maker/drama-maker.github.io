@@ -3,20 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore a collection of beautiful illustrations and sketches by H.G.">
+    <meta name="keywords" content="art, illustrations, sketches, drawings, H.G.">
+    <meta name="author" content="H.G.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#ffffff">
+    
     <title>My Art</title>
+    
     <style>
         .image-container {
             position: relative;
             overflow: hidden;
             width: 200px;
             margin: 5px;
+            float: left;
         }
 
         img {
             width: 100%;
             height: auto;
             transition: transform 0.3s;
-            float: left;
+        }
+
+        .enlarge-on-hover:hover {
+            transform: scale(1.5);
         }
 
         .image-overlay {
@@ -31,17 +42,13 @@
             transition: opacity 0.3s;
         }
 
-        .image-container:hover img {
-            transform: scale(5);
-        }
-
         .image-container:hover .image-overlay {
             opacity: 1;
         }
     </style>
 </head>
 <body>
-    <div class="image-container">
+    <div class="image-container enlarge-on-hover">
         <img src="/images/Iced_Monster_Land.png" alt="Illustration of Iced Monster Land." class="enlarge-on-hover">
         <div class="image-overlay">
             <p>Author: H.G.</p>
@@ -125,7 +132,7 @@
 
             imageContainers.forEach(container => {
                 container.addEventListener('mousemove', (e) => {
-                    const img = container;
+                    const img = container.querySelector('img');
                     const rect = img.getBoundingClientRect();
 
                     const x = (e.clientX - rect.left) / rect.width;
