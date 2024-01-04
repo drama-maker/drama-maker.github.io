@@ -45,7 +45,7 @@
             </header>
             <div>
                 <h1 class="hero-title">Hello!</h1>
-                <p class="hero-lead">Welcome to my site. This site is being updated constantly. This site is still under construction. Please walk around with caution.</p>
+                <p class="hero-lead">Welcome to my site. Get to know about me &#9728;.</p>
                 <a href="#about" class="hero-button">Further</a>
             </div>
         </div>
@@ -176,7 +176,7 @@
         let currentImageIndex = 0;
         
         function showNextImage() {
-            slideshowContainer.innerHTML = `<img src="${imageUrls[currentImageIndex]}" alt="Slideshow Image" style="height: 300px;">`;
+            slideshowContainer.innerHTML = `<img src="${imageUrls[currentImageIndex]}" alt="Slideshow Image" style="height: 250px;">`;
             currentImageIndex = (currentImageIndex + 1) % imageUrls.length;
         }
         
