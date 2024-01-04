@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Parallax Scrolling</title>
+  
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+    
+    .parallax-container {
+        height: 100vh;
+        overflow: hidden;
+        perspective: 1px;
+    }
+    
+    .parallax-layer {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    
+    .layer1 {
+        background-image: url('background1.jpg'); /* to replace */
+        background-size: cover;
+        transform: translateZ(-1px) scale(2);
+    }
+    
+    .layer2 {
+        background-image: url('background2.jpg'); /* to replace */
+        background-size: cover;
+        transform: translateZ(-2px) scale(3);
+    }
+    
+    .layer3 {
+        background-image: url('background3.jpg'); /* to replace */
+        background-size: cover;
+        transform: translateZ(-3px) scale(4);
+    }
+    
+    .layer4 {
+        background-image: url('background4.jpg'); /* to replace */
+        background-size: cover;
+        transform: translateZ(-4px) scale(5);
+    }
+    
+    .parallax-content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        color: #fff;
+        text-align: center;
+    }
+    
+    h1 {
+        margin-bottom: 20px;
+    }
+    
+    p {
+        font-size: 18px;
+        max-width: 600px;
+    }
+    </style>
+</head>
+<body>
+    <div class="parallax-container">
+        <div class="parallax-layer layer1"></div>
+        <div class="parallax-layer layer2"></div>
+        <div class="parallax-layer layer3"></div>
+        <div class="parallax-layer layer4"></div>
+        <div class="parallax-content">
+            <h1>CSS-Only Parallax Scrolling</h1>
+            <p>Create a stunning parallax effect using only CSS.</p>
+        </div>
+    </div>
+</body>
+</html>
