@@ -22,19 +22,17 @@
             position: relative;
             overflow: hidden;
             width: 200px;
-            margin: 5px;
+            margin: 10px;
             float: left;
-            margin: 10px; /* Adjust the margin to control spacing between images */
         }
 
         img {
-@@ -26,8 +31,8 @@
+            width: 100%;
+            height: auto;
             transition: transform 0.3s;
         }
 
-        .enlarge-on-hover:hover {
-            transform: scale(1.5);
-        .partial-enlarge-on-hover:hover img {
+        .enlarge-on-hover:hover img {
             transform: scale(5);
         }
 
@@ -49,6 +47,7 @@
             opacity: 0;
             transition: opacity 0.3s;
         }
+
         .image-container:hover .image-overlay {
             opacity: 1;
         }
