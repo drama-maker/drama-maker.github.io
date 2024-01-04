@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Responsive Pricing Table</title>
+  
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+        font-family: 'Arial', sans-serif;
+    }
+    
+    .pricing-table {
+        display: flex;
+        justify-content: space-around;
+        max-width: 900px;
+    }
+    
+    .plan {
+        text-align: center;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 30%;
+        margin: 20px 0;
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .plan:hover {
+        transform: scale(1.05);
+    }
+    
+    .featured {
+        background-color: #3498db;
+        color: #fff;
+    }
+    
+    .price {
+        font-size: 24px;
+        margin: 10px 0;
+    }
+    
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    li {
+        margin: 5px 0;
+    }
+    
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #3498db;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 15px;
+        transition: background-color 0.3s;
+    }
+    
+    .btn:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+    <div class="pricing-table">
+        <div class="plan">
+            <h2>Basic</h2>
+            <p class="price">$19.99/month</p>
+            <ul>
+                <li>Feature 1</li>
+                <li>Feature 2</li>
+                <li>Feature 3</li>
+            </ul>
+            <a href="#" class="btn">Sign Up</a>
+        </div>
+        <div class="plan featured">
+            <h2>Premium</h2>
+            <p class="price">$29.99/month</p>
+            <ul>
+                <li>Feature 1</li>
+                <li>Feature 2</li>
+                <li>Feature 3</li>
+                <li>Feature 4</li>
+            </ul>
+            <a href="#" class="btn">Sign Up</a>
+        </div>
+        <div class="plan">
+            <h2>Pro</h2>
+            <p class="price">$49.99/month</p>
+            <ul>
+                <li>Feature 1</li>
+                <li>Feature 2</li>
+                <li>Feature 3</li>
+                <li>Feature 4</li>
+                <li>Feature 5</li>
+            </ul>
+            <a href="#" class="btn">Sign Up</a>
+        </div>
+    </div>
+</body>
+</html>
