@@ -167,20 +167,21 @@
         });
 
         const imageUrls = [
-        '/images/Iced_Monster_Land.png',
-        '/images/jelly-background.jpg',
-        '/images/flower-background.jpg',
+            '/images/Iced_Monster_Land.png',
+            '/images/jelly-background.jpg',
+            '/images/flower-background.jpg',
         ];
-    
+        
         const slideshowContainer = document.getElementById('slideshow');
         let currentImageIndex = 0;
-    
+        
         function showNextImage() {
-            slideshowContainer.innerHTML = `<img src="${imageUrls[currentImageIndex]}" alt="Slideshow Image">`;
+            slideshowContainer.innerHTML = `<img src="${imageUrls[currentImageIndex]}" alt="Slideshow Image" style="height: 100px;">`;
             currentImageIndex = (currentImageIndex + 1) % imageUrls.length;
         }
+        
         const intervalTime = 7000;
-    
+        
         setInterval(showNextImage, intervalTime);
     </script>
   </body>
