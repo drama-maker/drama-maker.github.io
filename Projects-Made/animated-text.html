@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Animated Text</title>
+  
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+    }
+    
+    .animated-text {
+        font-family: 'Arial', sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+        color: #3498db;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+    
+    .animated-text span {
+        display: inline-block;
+        transform-origin: 50% 50%;
+        animation: animateText 1.5s infinite;
+    }
+    
+    .animated-text span:nth-child(odd) {
+        animation-direction: reverse;
+    }
+    
+    @keyframes animateText {
+        0% {
+            transform: scale(1) rotate(0deg);
+        }
+        25% {
+            transform: scale(1.2) rotate(5deg);
+        }
+        50% {
+            transform: scale(1) rotate(0deg);
+        }
+        75% {
+            transform: scale(1.2) rotate(-5deg);
+        }
+        100% {
+            transform: scale(1) rotate(0deg);
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="animated-text">
+        <span>S</span>
+        <span>U</span>
+        <span>P</span>
+        <span>E</span>
+        <span>R</span>
+        <span> </span>
+        <span>C</span>
+        <span>O</span>
+        <span>O</span>
+        <span>L</span>
+        <span> </span>
+        <span>A</span>
+        <span>n</span>
+        <span>i</span>
+        <span>m</span>
+        <span>a</span>
+        <span>t</span>
+        <span>e</span>
+        <span>d</span>
+        <span> </span>
+        <span>T</span>
+        <span>e</span>
+        <span>x</span>
+        <span>t</span>
+    </div>
+</body>
+</html>
