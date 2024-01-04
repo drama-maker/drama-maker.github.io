@@ -176,7 +176,7 @@
         let currentImageIndex = 0;
         
         function showNextImage() {
-            slideshowContainer.innerHTML = `<img src="${imageUrls[currentImageIndex]}" alt="Slideshow Image" style="height: 500px;">`;
+            slideshowContainer.innerHTML = `<img src="${imageUrls[currentImageIndex]}" alt="Slideshow Image" style="height: 300px;">`;
             currentImageIndex = (currentImageIndex + 1) % imageUrls.length;
         }
         
