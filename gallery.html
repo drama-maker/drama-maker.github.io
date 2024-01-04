@@ -10,7 +10,7 @@
     <meta name="theme-color" content="#ffffff">
     
     <title>My Art</title>
-    
+
     <style>
         body {
             display: flex;
@@ -29,10 +29,11 @@
             width: 100%;
             height: auto;
             transition: transform 0.3s;
+            display: block;
         }
 
         .partial-enlarge-on-hover:hover img {
-            transform: scale(5);
+            transform: scale(1.5);
         }
 
         .image-overlay {
@@ -48,6 +49,37 @@
         }
 
         .image-container:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .enlarge-on-hover {
+            overflow: hidden;
+        }
+
+        .enlarge-on-hover img {
+            transition: transform 0.3s;
+        }
+
+        .enlarge-on-hover:hover img {
+            transform: scale(1.5);
+        }
+
+        .enlarge-on-hover .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .enlarge-on-hover:hover .image-overlay {
             opacity: 1;
         }
     </style>
@@ -133,7 +165,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const imageContainers = document.querySelectorAll('.partial-enlarge-on-hover');
+            const imageContainers = document.querySelectorAll('.enlarge-on-hover');
 
             imageContainers.forEach(container => {
                 container.addEventListener('mousemove', (e) => {
