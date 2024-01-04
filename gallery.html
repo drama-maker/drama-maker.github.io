@@ -12,10 +12,10 @@
     <title>My Art</title>
 
     <style>
-         body {
+        body {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
+            background-color: #6495ED;
         }
 
         .image-container {
@@ -23,16 +23,16 @@
             overflow: hidden;
             width: 200px;
             margin: 10px;
-            float: left;
         }
 
         img {
             width: 100%;
             height: auto;
             transition: transform 0.3s;
+            display: block;
         }
 
-        .enlarge-on-hover:hover img {
+        .partial-enlarge-on-hover:hover img {
             transform: scale(5);
         }
 
@@ -42,13 +42,42 @@
             left: 0;
             width: 100%;
             background: rgba(255, 255, 255, 0.5);
+            box-sizing: border-box;
+            opacity: 0;
+            transition: opacity 0.3s;
+            text-align: center;
+        }
+
+        .image-container:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .enlarge-on-hover {
+            overflow: hidden;
+        }
+
+        .enlarge-on-hover img {
+            transition: transform 0.3s;
+        }
+
+        .enlarge-on-hover:hover img {
+            transform: scale(5);
+        }
+
+        .enlarge-on-hover .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.5);
             padding: 10px;
             box-sizing: border-box;
             opacity: 0;
             transition: opacity 0.3s;
+            text-align: center;
         }
 
-        .image-container:hover .image-overlay {
+        .enlarge-on-hover:hover .image-overlay {
             opacity: 1;
         }
     </style>
