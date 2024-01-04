@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Random Quote Generator</title>
+</head>
+<body>
+  <h1>Random Quote Generator</h1>
+  <button onclick="generateRandomQuote()">Generate Quote</button>
+  <blockquote>
+    <p id="quote"></p>
+    <footer id="author"></footer>
+  </blockquote>
+  <script>
+    const quotes = [
+      { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+      { text: "Innovation distinguishes between a leader and a follower.", author: "Steve Jobs" },
+      { text: "Life is what happens when you're busy making other plans.", author: "John Lennon" },
+      { text: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt" },
+    ];
+
+    function generateRandomQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      const randomQuote = quotes[randomIndex];
+
+      document.getElementById('quote').textContent = `"${randomQuote.text}"`;
+      document.getElementById('author').textContent = `— ${randomQuote.author}`;
+    }
+  </script>
+</body>
+</html>
