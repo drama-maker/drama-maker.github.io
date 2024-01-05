@@ -438,14 +438,18 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 80vh;
     background-color: #f0f0f0;
+}
+
+.pricing-section h2{
+    font-size: 34px;
 }
 
 .pricing-table {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     max-width: 900px;
     width: 100%;
 }
@@ -471,7 +475,7 @@ nav {
 }
 
 .price {
-    font-size: 14px;
+    font-size: 24px;
     margin: 10px 0;
 }
 
@@ -487,16 +491,18 @@ li {
 .btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #3498db;
+    background-color: #fff;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
+    border: 2px;
+    border-color: var(--pink);
     margin-top: 15px;
     transition: background-color 0.3s;
 }
 
 .btn:hover {
-    background-color: #2980b9;
+    background-color: var(--d_pink);
 }
 
 /* FOOTER */
