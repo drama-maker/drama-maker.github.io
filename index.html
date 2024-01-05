@@ -162,49 +162,37 @@
         </div>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-        var mobileMenuIcon = document.getElementById("mobile-menu-icon");
-        var menu = document.getElementById("main-menu");
-        mobileMenuIcon.innerHTML = "&#9776;";
-        if (mobileMenuIcon) {
-            mobileMenuIcon.addEventListener("click", function () {
-                menu.classList.toggle("show");
-                var isOpened = menu.classList.contains("show");
-                mobileMenuIcon.innerHTML = isOpened ? "&#10006;" : "&#9776;";
-            });
-        }
+            document.addEventListener("DOMContentLoaded", function () {
+            var loaderContainer = document.querySelector(".loader-container");
+            loaderContainer.parentNode.removeChild(loaderContainer);
+            
+            var mobileMenuIcon = document.getElementById("mobile-menu-icon");
+            var menu = document.getElementById("main-menu");
+            mobileMenuIcon.innerHTML = "&#9776;";
+            if (mobileMenuIcon) {
+                mobileMenuIcon.addEventListener("click", function () {
+                    menu.classList.toggle("show");
+                    var isOpened = menu.classList.contains("show");
+                    mobileMenuIcon.innerHTML = isOpened ? "&#10006;" : "&#9776;";
+                });
+            }
+
+            const imageUrls = [
+                '/images/Iced_Monster_Land.png',
+            ];
+
+            const slideshowContainer = document.getElementById('slideshow');
+            let currentImageIndex = 0;
+
+            function showNextImage() {
+                slideshowContainer.innerHTML = `<img src="${imageUrls[currentImageIndex]}" alt="Slideshow Image" style="height: 250px;">`;
+                currentImageIndex = (currentImageIndex + 1) % imageUrls.length;
+            }
+
+            const intervalTime = 7000;
+
+            setInterval(showNextImage, intervalTime);
         });
-
-        const imageUrls = [
-            '/images/Iced_Monster_Land.png',
-        ];
-        
-        const slideshowContainer = document.getElementById('slideshow');
-        let currentImageIndex = 0;
-        
-        function showNextImage() {
-            slideshowContainer.innerHTML = `<img src="${imageUrls[currentImageIndex]}" alt="Slideshow Image" style="height: 250px;">`;
-            currentImageIndex = (currentImageIndex + 1) % imageUrls.length;
-        }
-        
-        const intervalTime = 7000;
-        
-        setInterval(showNextImage, intervalTime);
-        
-        function simulateSubmit() {
-            var formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                subject: document.getElementById('subject').value,
-                message: document.getElementById('message').value
-            };
-
-            alert('Form data sent:\n\n' +
-                'Name: ' + formData.name + '\n' +
-                'Email: ' + formData.email + '\n' +
-                'Subject: ' + formData.subject + '\n' +
-                'Message: ' + formData.message);
-        }
     </script>
   </body>
 </html>
