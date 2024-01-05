@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Keyboard</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #keyboard {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 5px;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    button {
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    input {
+      margin-top: 20px;
+      padding: 10px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div id="keyboard">
+    <button onclick="appendToInput('1')">1</button>
+    <button onclick="appendToInput('2')">2</button>
+    <button onclick="appendToInput('3')">3</button>
+    <button onclick="appendToInput('+')">+</button>
+    <button onclick="appendToInput('4')">4</button>
+    <button onclick="appendToInput('5')">5</button>
+    <button onclick="appendToInput('6')">6</button>
+    <button onclick="appendToInput('-')">-</button>
+    <button onclick="appendToInput('7')">7</button>
+    <button onclick="appendToInput('8')">8</button>
+    <button onclick="appendToInput('9')">9</button>
+    <button onclick="appendToInput('*')">*</button>
+    <button onclick="appendToInput('0')">0</button>
+    <button onclick="clearInput()">C</button>
+    <button onclick="calculateResult()">=</button>
+    <button onclick="appendToInput('/')">/</button>
+  </div>
+
+  <input type="text" id="input" readonly>
+
+  <script>
+    function appendToInput(value) {
+      document.getElementById('input').value += value;
+    }
+
+    function clearInput() {
+      document.getElementById('input').value = '';
+    }
+
+    function calculateResult() {
+      try {
+        const result = eval(document.getElementById('input').value);
+        document.getElementById('input').value = result;
+      } catch (error) {
+        document.getElementById('input').value = 'Error';
+      }
+    }
+  </script>
+</body>
+</html>
