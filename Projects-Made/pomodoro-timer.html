@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro Timer</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #timer-container {
+      text-align: center;
+    }
+
+    #timer {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    #controls {
+      display: flex;
+      gap: 20px;
+    }
+
+    button {
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="timer-container">
+    <div id="timer">25:00</div>
+    
+    <div id="controls">
+      <button onclick="startPomodoro()">Start Pomodoro</button>
+      <button onclick="startBreak()">Start Break</button>
+      <button onclick="resetTimer()">Reset Timer</button>
+    </div>
+  </div>
+
+  <script>
+    let timer;
+    let timeLeft;
+    let isBreak = false;
+
+    function startPomodoro() {
+      startTimer(25 * 60);
+    }
+
+    function startBreak() {
+      startTimer(5 * 60);
+    }
+
+    function resetTimer() {
+      clearInterval(timer);
+      isBreak = false;
+      updateTimerDisplay(25 * 60);
+    }
+
+    function startTimer(duration) {
+      clearInterval(timer);
+      timeLeft = duration;
+      isBreak = duration === 5 * 60;
+
+      timer = setInterval(function () {
+        if (timeLeft <= 0) {
+          clearInterval(timer);
+          notifyUser();
+          if (isBreak) {
+            startPomodoro();
+          } else {
+            startBreak();
+          }
+        } else {
+          updateTimerDisplay(timeLeft);
+          timeLeft--;
+        }
+      }, 1000);
+    }
+
+    function updateTimerDisplay(seconds) {
+      const minutes = Math.floor(seconds / 60);
+      const remainingSeconds = seconds % 60;
+      document.getElementById('timer').textContent = `${formatTime(minutes)}:${formatTime(remainingSeconds)}`;
+    }
+
+    function formatTime(time) {
+      return time < 10 ? `0${time}` : time;
+    }
+
+    function notifyUser() {
+      alert(isBreak ? 'Break time is over! Get back to work.' : 'Pomodoro session completed! Take a break.');
+    }
+  </script>
+</body>
+</html>
