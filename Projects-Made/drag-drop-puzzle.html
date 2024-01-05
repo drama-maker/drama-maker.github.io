@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drag-and-Drop Puzzle</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #puzzle {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      gap: 5px;
+    }
+
+    .piece {
+      width: 100px;
+      height: 100px;
+      background-color: #3498db;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: grab;
+      user-select: none;
+    }
+
+    .piece:active {
+      cursor: grabbing;
+    }
+  </style>
+</head>
+<body>
+  <div id="puzzle"></div>
+
+  <script>
+    const puzzle = document.getElementById('puzzle');
+    const pieces = [...Array(9).keys()];
+    let emptyPosition = 8;
+
+    pieces.forEach((value, index) => {
+      const piece = document.createElement('div');
+      piece.classList.add('piece');
+      piece.draggable = true;
+      piece.textContent = value + 1; // Display 1 to 9 on pieces
+      piece.addEventListener('dragstart', (e) => handleDragStart(e, index));
+      piece.addEventListener('dragover', (e) => e.preventDefault());
+      piece.addEventListener('drop', (e) => handleDrop(e, index));
+      puzzle.appendChild(piece);
+    });
+
+    function handleDragStart(e, index) {
+      e.dataTransfer.setData('text/plain', index);
+    }
+
+    function handleDrop(e, index) {
+      e.preventDefault();
+      const draggedIndex = parseInt(e.dataTransfer.getData('text/plain'));
+      
+      if (isAdjacent(draggedIndex, index)) {
+        swapPieces(draggedIndex, index);
+        checkWin();
+      }
+    }
+
+    function isAdjacent(index1, index2) {
+      const row1 = Math.floor(index1 / 3);
+      const col1 = index1 % 3;
+      const row2 = Math.floor(index2 / 3);
+      const col2 = index2 % 3;
+
+      return (Math.abs(row1 - row2) === 1 && col1 === col2) || (Math.abs(col1 - col2) === 1 && row1 === row2);
+    }
+
+    function swapPieces(index1, index2) {
+      const temp = pieces[index1];
+      pieces[index1] = pieces[index2];
+      pieces[index2] = temp;
+
+      updatePuzzle();
+    }
+
+    function updatePuzzle() {
+      puzzle.innerHTML = '';
+      pieces.forEach((value, index) => {
+        const piece = document.createElement('div');
+        piece.classList.add('piece');
+        piece.draggable = true;
+        piece.textContent = value + 1;
+        piece.addEventListener('dragstart', (e) => handleDragStart(e, index));
+        piece.addEventListener('dragover', (e) => e.preventDefault());
+        piece.addEventListener('drop', (e) => handleDrop(e, index));
+        puzzle.appendChild(piece);
+      });
+    }
+
+    function checkWin() {
+      if (pieces.every((value, index) => value === index)) {
+        alert('Congratulations! You solved the puzzle!');
+      }
+    }
+  </script>
+</body>
+</html>
