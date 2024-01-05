@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Generator</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      text-align: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input[type="number"], input[type="checkbox"] {
+      margin-top: 5px;
+    }
+
+    button {
+      margin-top: 15px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #password {
+      margin-top: 15px;
+      padding: 10px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Password Generator</h1>
+    <label for="passwordLength">Password Length:</label>
+    <input type="number" id="passwordLength" min="6" max="20" value="12">
+    
+    <label for="includeUppercase">
+      <input type="checkbox" id="includeUppercase"> Include Uppercase
+    </label>
+    
+    <label for="includeNumbers">
+      <input type="checkbox" id="includeNumbers"> Include Numbers
+    </label>
+    
+    <label for="includeSpecialChars">
+      <input type="checkbox" id="includeSpecialChars"> Include Special Characters
+    </label>
+    
+    <button id="generateBtn">Generate Password</button>
+    
+    <input type="text" id="password" readonly>
+  </div>
+
+  <script>
+    document.getElementById('generateBtn').addEventListener('click', generatePassword);
+
+    function generatePassword() {
+      const passwordLength = document.getElementById('passwordLength').value;
+      const includeUppercase = document.getElementById('includeUppercase').checked;
+      const includeNumbers = document.getElementById('includeNumbers').checked;
+      const includeSpecialChars = document.getElementById('includeSpecialChars').checked;
+
+      const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
+      const numberChars = '0123456789';
+      const specialChars = '!@#$%^&*()_-+=<>?';
+
+      let validChars = lowercaseChars;
+
+      if (includeUppercase) validChars += uppercaseChars;
+      if (includeNumbers) validChars += numberChars;
+      if (includeSpecialChars) validChars += specialChars;
+
+      let password = '';
+      for (let i = 0; i < passwordLength; i++) {
+        const randomIndex = Math.floor(Math.random() * validChars.length);
+        password += validChars.charAt(randomIndex);
+      }
+
+      document.getElementById('password').value = password;
+    }
+  </script>
+</body>
+</html>
