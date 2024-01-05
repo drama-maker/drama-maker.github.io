@@ -435,17 +435,18 @@ nav {
 
 /* PRICING SECTION */
 .pricing-section {
-    padding: 33.33vh 0;
-    background-color: var(--grey);
-    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
 }
 
 .pricing-table {
     display: flex;
     justify-content: space-around;
-    max-width: 1100px;
-    width: 100%;
-    margin: 0 auto;
+    max-width: 900px;
+    height: 33.33%;
 }
 
 .plan {
@@ -455,7 +456,7 @@ nav {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 30%;
-    height: 33.33vh;
+    height: 100%;
     margin: 20px 0;
     transition: transform 0.3s ease-in-out;
 }
@@ -465,7 +466,7 @@ nav {
 }
 
 .featured {
-    background-color: var(--pink);
+    background-color: #3498db;
     color: #fff;
 }
 
@@ -475,7 +476,7 @@ nav {
 }
 
 ul {
-    list-style-type: circle;
+    list-style-type: none;
     padding: 0;
 }
 
@@ -486,18 +487,16 @@ li {
 .btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: var(--pink);
-    color: #000;
+    background-color: #3498db;
+    color: #fff;
     text-decoration: none;
     border-radius: 5px;
-    border-color: var(--d_pink);
-    border: 2px;
     margin-top: 15px;
     transition: background-color 0.3s;
 }
 
 .btn:hover {
-    background-color: var(--d_pink);
+    background-color: #2980b9;
 }
 
 /* FOOTER */
