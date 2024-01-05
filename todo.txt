@@ -1,27 +1,3 @@
-Random Password Generator:
-Create a tool that generates random passwords based on user-specified criteria like length, character types, etc. Use JavaScript to handle the generation logic and update the UI.
-
-Virtual Keyboard:
-Develop a virtual keyboard that users can interact with on the web page. Use JavaScript to capture key presses, handle special keys, and update the displayed input.
-
-Tic-Tac-Toe Game:
-Build a simple Tic-Tac-Toe game where users can play against each other or against the computer. Use JavaScript for game logic and UI updates.
-
-Expense Tracker:
-Create an expense tracker that allows users to add, categorize, and visualize their expenses over time. Use JavaScript to handle data manipulation and chart rendering.
-
-Timeline/Chronology Component:
-Build a timeline or chronology component that dynamically displays events in chronological order. Use JavaScript to handle event data and update the timeline.
-
-Drag-and-Drop Puzzle Game:
-Develop a puzzle game where users can rearrange pieces by dragging and dropping them. Use JavaScript to handle the game logic and piece movements.
-
-Virtual Dice Roller:
-Create a virtual dice roller that allows users to simulate rolling dice of different types (e.g., d6, d20). Use JavaScript to handle the randomization and display results.
-
-Interactive 3D Cube:
-Build an interactive 3D cube that users can rotate and manipulate. Use JavaScript and a 3D library like Three.js for the rendering and interaction.
-
 Country Information App:
 Develop an application that fetches and displays information about countries, such as population, capital, and currency. Use JavaScript to handle API requests and display the data.
 
@@ -90,4 +66,3 @@ Create a dynamic typing speed test that evaluates users' typing speed
 Note-Taking App: Create a simple note-taking application that allows users to create, edit, and delete notes.
 
 Weather-based Clothing Recommender: Create an app that suggests clothing based on the weather forecast for
-
