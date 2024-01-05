@@ -435,7 +435,7 @@ nav {
 
 /* PRICING SECTION */
 .pricing-section {
-    padding: 100px 0;
+    padding: 33.33vh 0;
     background-color: var(--grey);
     color: #ffffff;
 }
@@ -455,6 +455,7 @@ nav {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 30%;
+    height: 33.33vh;
     margin: 20px 0;
     transition: transform 0.3s ease-in-out;
 }
@@ -474,7 +475,7 @@ nav {
 }
 
 ul {
-    list-style-type: none;
+    list-style-type: circle;
     padding: 0;
 }
 
@@ -486,9 +487,11 @@ li {
     display: inline-block;
     padding: 10px 20px;
     background-color: var(--pink);
-    color: #fff;
+    color: #000;
     text-decoration: none;
     border-radius: 5px;
+    border-color: var(--d_pink);
+    border: 2px;
     margin-top: 15px;
     transition: background-color 0.3s;
 }
