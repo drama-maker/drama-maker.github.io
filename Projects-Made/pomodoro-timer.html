@@ -47,10 +47,6 @@
   </div>
 
   <script>
-    let timer;
-    let timeLeft;
-    let isBreak = false;
-
     function startPomodoro() {
       startTimer(25 * 60);
     }
@@ -67,7 +63,7 @@
 
     function startTimer(duration) {
       clearInterval(timer);
-      timeLeft = duration;
+      let timeLeft = duration;
       isBreak = duration === 5 * 60;
 
       timer = setInterval(function () {
