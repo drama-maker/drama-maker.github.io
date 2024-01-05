@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Progress Bar</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #progress-container {
+      width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      overflow: hidden;
+      margin: 20px;
+    }
+
+    #progress-bar {
+      width: 0;
+      height: 30px;
+      background-color: #4CAF50;
+      transition: width 0.3s ease;
+    }
+
+    button {
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <button onclick="startProgress()">Start</button>
+    <button onclick="updateProgress()">Update</button>
+  </div>
+  <div id="progress-container">
+    <div id="progress-bar"></div>
+  </div>
+
+  <script>
+    let progressInterval;
+
+    function startProgress() {
+      clearInterval(progressInterval);
+      let progressBar = document.getElementById('progress-bar');
+      progressBar.style.width = '0';
+
+      let width = 0;
+      progressInterval = setInterval(() => {
+        if (width < 100) {
+          width++;
+          progressBar.style.width = width + '%';
+        } else {
+          clearInterval(progressInterval);
+        }
+      }, 30);
+    }
+
+    function updateProgress() {
+      clearInterval(progressInterval);
+      let progressBar = document.getElementById('progress-bar');
+      let width = parseInt(window.getComputedStyle(progressBar).width, 10);
+      
+      // For demonstration purposes, we'll update the progress by 10%.
+      width += 10;
+
+      if (width <= 100) {
+        progressBar.style.width = width + '%';
+      }
+    }
+  </script>
+</body>
+</html>
