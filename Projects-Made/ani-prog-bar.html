@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Animated Progress Bar</title>
+  <title>Professional Animated Progress Bar</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -12,22 +12,24 @@
       justify-content: center;
       height: 100vh;
       margin: 0;
-      background-color: #fdf6e3;
+      background-color: #f4f4f4;
     }
 
     #progress-container {
       width: 300px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+      border: 1px solid #e2d771;
+      border-radius: 20px;
       overflow: hidden;
       margin: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
     #progress-bar {
       width: 0;
       height: 30px;
-      background-color: #ffd700;
+      background-color: #ffcc00;
       transition: width 0.3s ease;
+      border-radius: 20px;
     }
 
     button {
@@ -35,15 +37,15 @@
       font-size: 16px;
       cursor: pointer;
       margin-right: 10px;
-      background-color: #3498db;
+      background-color: #007bff;
       color: #fff;
       border: none;
-      border-radius: 5px;
+      border-radius: 10px;
     }
   </style>
 </head>
 <body>
-  <div>
+  <div style="text-align: center; margin-bottom: 20px;">
     <button onclick="startProgress()">Start</button>
     <button onclick="updateProgress()">Update</button>
   </div>
@@ -75,7 +77,6 @@
       let progressBar = document.getElementById('progress-bar');
       let width = parseInt(window.getComputedStyle(progressBar).width, 10);
       
-      // For demonstration purposes, we'll update the progress by 10%.
       width += 10;
 
       if (width <= 100) {
