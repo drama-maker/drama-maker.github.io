@@ -446,7 +446,7 @@ nav {
     display: flex;
     justify-content: space-around;
     max-width: 900px;
-    height: 33.33%;
+    height: 50%;
 }
 
 .plan {
@@ -471,7 +471,7 @@ nav {
 }
 
 .price {
-    font-size: 24px;
+    font-size: 14px;
     margin: 10px 0;
 }
 
