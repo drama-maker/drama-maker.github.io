@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Dice Roller</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #result {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    select {
+      font-size: 16px;
+      padding: 8px;
+    }
+
+    button {
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <label for="diceType">Select Dice Type:</label>
+    <select id="diceType">
+      <option value="4">d4</option>
+      <option value="6">d6</option>
+      <option value="8">d8</option>
+      <option value="10">d10</option>
+      <option value="12">d12</option>
+      <option value="20">d20</option>
+    </select>
+
+    <button onclick="rollDice()">Roll Dice</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function rollDice() {
+      const diceType = parseInt(document.getElementById('diceType').value);
+      const result = Math.floor(Math.random() * diceType) + 1;
+      document.getElementById('result').textContent = `Result: ${result}`;
+    }
+  </script>
+</body>
+</html>
