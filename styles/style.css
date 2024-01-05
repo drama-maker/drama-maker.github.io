@@ -436,20 +436,20 @@ nav {
 /* PRICING SECTION */
 .pricing-section {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 80vh;
     background-color: #f0f0f0;
 }
 
-.pricing-section h2{
+.pricing-section h2 {
     font-size: 34px;
 }
 
 .pricing-table {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     max-width: 900px;
     width: 100%;
 }
@@ -461,7 +461,7 @@ nav {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 30%;
-    margin: 20px 0;
+    margin: 20px;
     transition: transform 0.3s ease-in-out;
 }
 
@@ -470,7 +470,7 @@ nav {
 }
 
 .featured {
-    background-color: #3498db;
+    background-color: var(--pink);
     color: #fff;
 }
 
