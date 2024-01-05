@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Star Rating</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .star-container {
+      display: flex;
+    }
+
+    .star {
+      font-size: 24px;
+      cursor: pointer;
+      margin: 0 5px;
+    }
+
+    .star:hover,
+    .star.active {
+      color: gold;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h2>Rate This:</h2>
+    <div id="star-rating" class="star-container">
+      <span class="star" onclick="rate(1)">★</span>
+      <span class="star" onclick="rate(2)">★</span>
+      <span class="star" onclick="rate(3)">★</span>
+      <span class="star" onclick="rate(4)">★</span>
+      <span class="star" onclick="rate(5)">★</span>
+    </div>
+
+    <p id="rating-value">Rating: 0</p>
+  </div>
+
+  <script>
+    let userRating = 0;
+
+    function rate(stars) {
+      userRating = stars;
+      updateRatingUI();
+    }
+
+    function updateRatingUI() {
+      const stars = document.querySelectorAll('.star');
+      stars.forEach((star, index) => {
+        if (index < userRating) {
+          star.classList.add('active');
+        } else {
+          star.classList.remove('active');
+        }
+      });
+
+      document.getElementById('rating-value').innerText = `Rating: ${userRating}`;
+    }
+  </script>
+</body>
+</html>
