@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timeline Component</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #timeline {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      margin: 20px;
+      height: 20px;
+      background-color: #ddd;
+    }
+
+    .event {
+      position: absolute;
+      height: 20px;
+      width: 20px;
+      background-color: #3498db;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .event:hover {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <div id="timeline"></div>
+
+  <script>
+    const timeline = document.getElementById('timeline');
+    let eventCount = 0;
+
+    function addEvent(year) {
+      const event = document.createElement('div');
+      event.classList.add('event');
+      event.style.left = `${(year / 2022) * 100}%`;
+      event.setAttribute('data-tooltip', `Event ${++eventCount}\nYear: ${year}`);
+      event.addEventListener('click', () => alert(`Event ${eventCount}\nYear: ${year}`));
+      timeline.appendChild(event);
+    }
+
+    addEvent(2000);
+    addEvent(2010);
+    addEvent(2020);
+    addEvent(2030);
+    addEvent(2040);
+
+  </script>
+</body>
+</html>
