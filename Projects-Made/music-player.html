@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Player</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #music-player {
+      width: 300px;
+      text-align: center;
+      background-color: #f4f4f4;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    audio {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    button {
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    #playlist {
+      text-align: left;
+      max-height: 200px;
+      overflow-y: auto;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div id="music-player">
+    <audio id="audio" controls></audio>
+
+    <div id="playlist"></div>
+
+    <div>
+      <button onclick="playPause()">Play/Pause</button>
+      <button onclick="nextTrack()">Next Track</button>
+      <button onclick="prevTrack()">Prev Track</button>
+      <button onclick="toggleShuffle()">Shuffle</button>
+    </div>
+
+    <div>
+      <label for="volume">Volume:</label>
+      <input type="range" id="volume" min="0" max="1" step="0.1" value="1" oninput="setVolume(this.value)">
+    </div>
+
+    <script>
+      const audio = document.getElementById('audio');
+      const playlist = document.getElementById('playlist');
+      let currentTrackIndex = 0;
+      let isShuffle = false;
+
+      const tracks = [
+        { name: 'Song 1', source: 'path/to/song1.mp3' },
+        { name: 'Song 2', source: 'path/to/song2.mp3' },
+      ];
+
+      tracks.forEach((track, index) => {
+        const listItem = document.createElement('div');
+        listItem.textContent = track.name;
+        listItem.className = 'playlist-item';
+        listItem.onclick = () => playTrack(index);
+        playlist.appendChild(listItem);
+      });
+
+      function playTrack(index) {
+        currentTrackIndex = index;
+        audio.src = tracks[index].source;
+        audio.play();
+      }
+
+      function playPause() {
+        if (audio.paused) {
+          audio.play();
+        } else {
+          audio.pause();
+        }
+      }
+
+      function nextTrack() {
+        currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+        playTrack(currentTrackIndex);
+      }
+
+      function prevTrack() {
+        currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
+        playTrack(currentTrackIndex);
+      }
+
+      function setVolume(volume) {
+        audio.volume = volume;
+      }
+
+      function toggleShuffle() {
+        isShuffle = !isShuffle;
+        if (isShuffle) {
+          shufflePlaylist();
+        } else {
+          playTrack(currentTrackIndex);
+        }
+      }
+
+      function shufflePlaylist() {
+        let shuffledIndexes = Array.from({ length: tracks.length }, (_, i) => i);
+        shuffledIndexes = shuffledIndexes.sort(() => Math.random() - 0.5);
+
+        if (shuffledIndexes.indexOf(currentTrackIndex) === 0) {
+          shuffledIndexes = shuffledIndexes.reverse();
+        }
+
+        currentTrackIndex = 0;
+        playTrack(shuffledIndexes[currentTrackIndex]);
+      }
+
+      audio.addEventListener('ended', () => {
+        if (isShuffle) {
+          nextTrack();
+        } else {
+          nextTrack();
+        }
+      });
+    </script>
+  </div>
+</body>
+</html>
