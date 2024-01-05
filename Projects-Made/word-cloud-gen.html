@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Cloud Generator</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #word-cloud-container {
+      position: relative;
+    }
+
+    .word {
+      font-size: 12px;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <label for="text-input">Enter text:</label>
+    <textarea id="text-input" rows="4" cols="50"></textarea>
+    <button onclick="generateWordCloud()">Generate Word Cloud</button>
+
+    <div id="word-cloud-container"></div>
+  </div>
+
+  <script>
+    function generateWordCloud() {
+      const textInput = document.getElementById('text-input').value;
+
+      const wordCloudContainer = document.getElementById('word-cloud-container');
+      wordCloudContainer.innerHTML = '';
+
+      const words = textInput.split(/\s+/);
+      const wordFrequency = {};
+
+      words.forEach((word) => {
+        const cleanedWord = word.toLowerCase().replace(/[^a-zA-Z0-9']/g, '');
+        if (cleanedWord !== '') {
+          wordFrequency[cleanedWord] = (wordFrequency[cleanedWord] || 0) + 1;
+        }
+      });
+
+      const maxFrequency = Math.max(...Object.values(wordFrequency));
+      const scaleFactor = 5;
+
+      Object.entries(wordFrequency).forEach(([word, frequency]) => {
+        const wordElement = document.createElement('span');
+        wordElement.textContent = word;
+        wordElement.style.fontSize = `${frequency * scaleFactor}px`;
+        wordElement.style.left = `${Math.random() * 80}%`;
+        wordElement.style.top = `${Math.random() * 80}%`;
+
+        wordElement.classList.add('word');
+        wordCloudContainer.appendChild(wordElement);
+      });
+    }
+  </script>
+</body>
+</html>
