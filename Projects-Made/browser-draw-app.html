@@ -1,1 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Drawing App</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
 
+    canvas {
+      border: 1px solid #ccc;
+    }
+
+    #tools {
+      margin-top: 10px;
+    }
+
+    button {
+      padding: 8px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="drawingCanvas" width="500" height="300"></canvas>
+  
+  <div id="tools">
+    <button onclick="setTool('pen')">Pen</button>
+    <button onclick="setTool('eraser')">Eraser</button>
+    <input type="color" id="colorPicker" value="#000000" onchange="setColor()">
+    <button onclick="clearCanvas()">Clear Canvas</button>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('drawingCanvas');
+    const context = canvas.getContext('2d');
+    let isDrawing = false;
+    let currentTool = 'pen';
+    let currentColor = '#000000';
+
+    canvas.addEventListener('mousedown', startDrawing);
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('mouseup', stopDrawing);
+    canvas.addEventListener('mouseout', stopDrawing);
+
+    function startDrawing(event) {
+      isDrawing = true;
+      context.beginPath();
+      context.moveTo(event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop);
+    }
+
+    function draw(event) {
+      if (!isDrawing) return;
+
+      const x = event.clientX - canvas.offsetLeft;
+      const y = event.clientY - canvas.offsetTop;
+
+      if (currentTool === 'pen') {
+        context.strokeStyle = currentColor;
+        context.lineWidth = 3;
+      } else if (currentTool === 'eraser') {
+        context.strokeStyle = '#ffffff';
+        context.lineWidth = 10;
+      }
+
+      context.lineJoin = 'round';
+      context.lineCap = 'round';
+
+      context.lineTo(x, y);
+      context.stroke();
+    }
+
+    function stopDrawing() {
+      isDrawing = false;
+    }
+
+    function setTool(tool) {
+      currentTool = tool;
+    }
+
+    function setColor() {
+      currentColor = document.getElementById('colorPicker').value;
+    }
+
+    function clearCanvas() {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  </script>
+</body>
+</html>
