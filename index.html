@@ -212,33 +212,32 @@
         </div>
     </footer>
     <script>
-            var mobileMenuIcon = document.getElementById("mobile-menu-icon");
-            var menu = document.getElementById("main-menu");
-            mobileMenuIcon.innerHTML = "&#9776;";
-            if (mobileMenuIcon) {
-                mobileMenuIcon.addEventListener("click", function () {
-                    menu.classList.toggle("show");
-                    var isOpened = menu.classList.contains("show");
-                    mobileMenuIcon.innerHTML = isOpened ? "&#10006;" : "&#9776;";
-                });
-            }
+        var mobileMenuIcon = document.getElementById("mobile-menu-icon");
+        var menu = document.getElementById("main-menu");
+        mobileMenuIcon.innerHTML = "&#9776;";
+        if (mobileMenuIcon) {
+            mobileMenuIcon.addEventListener("click", function () {
+                menu.classList.toggle("show");
+                var isOpened = menu.classList.contains("show");
+                mobileMenuIcon.innerHTML = isOpened ? "&#10006;" : "&#9776;";
+            });
+        }
 
-            const imageUrls = [
-                '/images/Iced_Monster_Land.png',
-            ];
+        const imageUrls = [
+            '/images/Iced_Monster_Land.png',
+        ];
 
-            const slideshowContainer = document.getElementById('slideshow');
-            let currentImageIndex = 0;
+        const slideshowContainer = document.getElementById('slideshow');
+        let currentImageIndex = 0;
 
-            function showNextImage() {
-                slideshowContainer.innerHTML = `<img src="${imageUrls[currentImageIndex]}" alt="Slideshow Image" style="height: 250px;">`;
-                currentImageIndex = (currentImageIndex + 1) % imageUrls.length;
-            }
+        function showNextImage() {
+            slideshowContainer.innerHTML = `<img src="${imageUrls[currentImageIndex]}" alt="Slideshow Image" style="height: 250px;">`;
+            currentImageIndex = (currentImageIndex + 1) % imageUrls.length;
+        }
 
-            const intervalTime = 7000;
+        const intervalTime = 7000;
 
-            setInterval(showNextImage, intervalTime);
-        });
+        setInterval(showNextImage, intervalTime);
     </script>
   </body>
 </html>
