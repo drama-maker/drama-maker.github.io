@@ -164,6 +164,12 @@ nav {
     background-color: var(--pink);
 }
 
+.hero-section a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--d_pink);
+}
+
 @media screen and (max-width: 768px) {
     .hero-title {
         font-size: 90px;
@@ -255,6 +261,12 @@ nav {
 
 #slideshow {
     float: left;
+}
+
+#slideshow img {
+    height: 350px;
+    width: 350px;
+    object-fit: cover;
 }
 
 @media screen and (max-width: 768px) {
