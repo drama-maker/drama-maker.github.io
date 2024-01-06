@@ -65,12 +65,6 @@ p {
     margin: 0 0 20px;
 }
 
-p ~ a {
-    text-decoration: none;
-    font-weight: bold;
-    color: var(--pink);
-}
-
 /* HEADER AND MENU */
 .header {
     padding: 30px 20px 0;
