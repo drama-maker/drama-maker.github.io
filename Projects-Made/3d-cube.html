@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <title>Interactive 3D Cube</title>
+  
   <style>
     body {
       margin: 0;
@@ -15,27 +17,22 @@
   <script src="https://threejs.org/build/three.js"></script>
 
   <script>
-    // Set up the scene
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
 
-    // Create a cube
     const geometry = new THREE.BoxGeometry();
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    const material = new THREE.MeshBasicMaterial({ color: #65000B });
     const cube = new THREE.Mesh(geometry, material);
     scene.add(cube);
 
-    // Position the camera
     camera.position.z = 5;
 
-    // Add animation
     function animate() {
       requestAnimationFrame(animate);
 
-      // Rotate the cube
       cube.rotation.x += 0.01;
       cube.rotation.y += 0.01;
 
@@ -44,23 +41,18 @@
 
     animate();
 
-    // Add interactivity
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2();
 
     document.addEventListener('mousemove', (event) => {
-      // Calculate mouse coordinates in normalized device coordinates (-1 to +1)
       mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
       mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
-      // Update the picking ray with the camera and mouse position
       raycaster.setFromCamera(mouse, camera);
 
-      // Calculate objects intersecting the picking ray
       const intersects = raycaster.intersectObjects(scene.children);
 
       if (intersects.length > 0) {
-        // Rotate the intersected object
         intersects[0].object.rotation.x += 0.02;
         intersects[0].object.rotation.y += 0.02;
       }
