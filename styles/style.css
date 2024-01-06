@@ -167,7 +167,7 @@ nav {
 .hero-section a {
     text-decoration: none;
     font-weight: bold;
-    color: var(--d_pink);
+    color: var(--pink);
 }
 
 @media screen and (max-width: 768px) {
@@ -257,6 +257,12 @@ nav {
 .about-text p.first-letter::first-letter {
     color: var(--pink);
     font-size: 30px;
+}
+
+.hero-section a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--pink);
 }
 
 #slideshow {
