@@ -89,8 +89,9 @@
     function handleTouchStart(event) {
       event.preventDefault();
       const touch = event.touches[0];
-      touchX = touch.clientX - canvas.offsetLeft;
-      touchY = touch.clientY - canvas.offsetTop;
+      const rect = canvas.getBoundingClientRect();
+      touchX = touch.clientX - rect.left;
+      touchY = touch.clientY - rect.top;
       startDrawing({ clientX: touchX, clientY: touchY });
     }
     
