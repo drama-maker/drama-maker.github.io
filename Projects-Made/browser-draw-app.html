@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple Drawing App</title>
+  <title>Advanced Drawing App</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -30,6 +30,7 @@
     }
   </style>
 </head>
+
 <body>
   <canvas id="drawingCanvas" width="500" height="300"></canvas>
 
@@ -39,6 +40,12 @@
     <input type="color" id="colorPicker" value="#000000" onchange="setColor()">
     <button onclick="clearCanvas()">Clear Canvas</button>
     <button onclick="downloadImage()">Download Image</button>
+
+    <label for="brushSize">Brush Size:</label>
+    <input type="range" id="brushSize" min="1" max="20" value="3" oninput="setBrushSize()">
+    
+    <button onclick="saveBrush()">Save Brush</button>
+    <input type="file" id="brushInput" accept=".json" onchange="loadBrush()">
   </div>
 
   <script>
@@ -47,11 +54,16 @@
     let isDrawing = false;
     let currentTool = 'pen';
     let currentColor = '#000000';
+    let brushSize = 3;
 
     canvas.addEventListener('mousedown', startDrawing);
     canvas.addEventListener('mousemove', draw);
     canvas.addEventListener('mouseup', stopDrawing);
     canvas.addEventListener('mouseout', stopDrawing);
+
+    canvas.addEventListener('touchstart', handleTouchStart);
+    canvas.addEventListener('touchmove', handleTouchMove);
+    canvas.addEventListener('touchend', stopDrawing);
 
     function startDrawing(event) {
       isDrawing = true;
@@ -65,16 +77,7 @@
       const x = event.clientX - canvas.offsetLeft;
       const y = event.clientY - canvas.offsetTop;
 
-      if (currentTool === 'pen') {
-        context.strokeStyle = currentColor;
-        context.lineWidth = 3;
-      } else if (currentTool === 'eraser') {
-        context.strokeStyle = '#ffffff';
-        context.lineWidth = 10;
-      }
-
-      context.lineJoin = 'round';
-      context.lineCap = 'round';
+      setContextOptions();
 
       context.lineTo(x, y);
       context.stroke();
@@ -84,12 +87,41 @@
       isDrawing = false;
     }
 
+    let touchX, touchY;
+
+    function handleTouchStart(event) {
+      event.preventDefault();
+      const touch = event.touches[0];
+      touchX = touch.clientX - canvas.offsetLeft;
+      touchY = touch.clientY - canvas.offsetTop;
+      startDrawing(touch);
+    }
+
+    function handleTouchMove(event) {
+      event.preventDefault();
+      const touch = event.touches[0];
+      const x = touch.clientX - canvas.offsetLeft;
+      const y = touch.clientY - canvas.offsetTop;
+      draw({ clientX: x, clientY: y });
+    }
+
+    function setContextOptions() {
+      context.strokeStyle = currentColor;
+      context.lineWidth = brushSize;
+      context.lineJoin = 'round';
+      context.lineCap = 'round';
+    }
+
     function setTool(tool) {
       currentTool = tool;
     }
 
     function setColor() {
       currentColor = document.getElementById('colorPicker').value;
+    }
+
+    function setBrushSize() {
+      brushSize = document.getElementById('brushSize').value;
     }
 
     function clearCanvas() {
@@ -105,6 +137,43 @@
       a.click();
       document.body.removeChild(a);
     }
+
+    function saveBrush() {
+      const brush = {
+        color: currentColor,
+        size: brushSize
+      };
+
+      const blob = new Blob([JSON.stringify(brush)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'brush.json';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    function loadBrush() {
+      const input = document.getElementById('brushInput');
+      const file = input.files[0];
+
+      if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+          const brushData = JSON.parse(e.target.result);
+
+          currentColor = brushData.color;
+          brushSize = brushData.size;
+          
+          document.getElementById('colorPicker').value = currentColor;
+          document.getElementById('brushSize').value = brushSize;
+        };
+
+        reader.readAsText(file);
+      }
+    }
   </script>
 </body>
+
 </html>
