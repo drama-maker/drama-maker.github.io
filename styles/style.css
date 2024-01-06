@@ -259,7 +259,7 @@ nav {
     font-size: 30px;
 }
 
-.hero-section p~a {
+.about-section a {
     text-decoration: none;
     font-weight: bold;
     color: var(--pink);
