@@ -17,25 +17,26 @@
             flex-wrap: wrap;
             background-color: #6495ED;
         }
-
+        
         .image-container {
             position: relative;
             overflow: hidden;
             width: 200px;
             margin: 10px;
+            margin-top: none;
         }
-
+        
         img {
             width: 100%;
             height: auto;
             transition: transform 0.3s;
             display: block;
         }
-
+        
         .partial-enlarge-on-hover:hover img {
             transform: scale(5);
         }
-
+        
         .image-overlay {
             position: absolute;
             bottom: 0;
@@ -46,24 +47,26 @@
             opacity: 0;
             transition: opacity 0.3s;
             text-align: center;
+            padding: 10px;
         }
-
+        
         .image-container:hover .image-overlay {
             opacity: 1;
         }
-
+        
         .enlarge-on-hover {
             overflow: hidden;
+            position: relative;
         }
-
+        
         .enlarge-on-hover img {
             transition: transform 0.3s;
         }
-
+        
         .enlarge-on-hover:hover img {
             transform: scale(5);
         }
-
+        
         .enlarge-on-hover .image-overlay {
             position: absolute;
             bottom: 0;
@@ -76,7 +79,7 @@
             transition: opacity 0.3s;
             text-align: center;
         }
-
+        
         .enlarge-on-hover:hover .image-overlay {
             opacity: 1;
         }
