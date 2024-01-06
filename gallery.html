@@ -17,29 +17,25 @@
             flex-wrap: wrap;
             background-color: #6495ED;
         }
-        
+
         .image-container {
             position: relative;
             overflow: hidden;
             width: 200px;
             margin: 10px;
         }
-        
-        img {
+
+        .image-container img {
             width: 100%;
             height: auto;
             transition: transform 0.3s;
             display: block;
         }
-        
-        .enlarge-on-hover img {
-            transition: transform 0.3s;
-        }
-        
+
         .enlarge-on-hover:hover img {
-            transform: scale(5);
+            transform: scale(1.5);
         }
-        
+
         .image-overlay {
             position: absolute;
             bottom: 0;
@@ -52,7 +48,7 @@
             text-align: center;
             padding: 10px;
         }
-        
+
         .image-container:hover .image-overlay {
             opacity: 1;
         }
@@ -137,6 +133,9 @@
             </div>
     </div>
 
+    <footer>
+        <p>&copy; H.G.</p>
+    </footer>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const imageContainers = document.querySelectorAll('.enlarge-on-hover');
@@ -154,8 +153,5 @@
             });
         });
     </script>
-    <footer>
-        <p>&copy; H.G.</p>
-    </footer>
 </body>
 </html>
