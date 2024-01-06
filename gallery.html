@@ -23,7 +23,6 @@
             overflow: hidden;
             width: 200px;
             margin: 10px;
-            margin-top: none;
         }
         
         img {
@@ -33,7 +32,11 @@
             display: block;
         }
         
-        .partial-enlarge-on-hover:hover img {
+        .enlarge-on-hover img {
+            transition: transform 0.3s;
+        }
+        
+        .enlarge-on-hover:hover img {
             transform: scale(5);
         }
         
@@ -51,36 +54,6 @@
         }
         
         .image-container:hover .image-overlay {
-            opacity: 1;
-        }
-        
-        .enlarge-on-hover {
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .enlarge-on-hover img {
-            transition: transform 0.3s;
-        }
-        
-        .enlarge-on-hover:hover img {
-            transform: scale(5);
-        }
-        
-        .enlarge-on-hover .image-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.5);
-            padding: 10px;
-            box-sizing: border-box;
-            opacity: 0;
-            transition: opacity 0.3s;
-            text-align: center;
-        }
-        
-        .enlarge-on-hover:hover .image-overlay {
             opacity: 1;
         }
     </style>
