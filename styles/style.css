@@ -164,7 +164,7 @@ nav {
     background-color: var(--pink);
 }
 
-.hero-section a {
+.hero-section p ~ a {
     text-decoration: none;
     font-weight: bold;
     color: var(--pink);
