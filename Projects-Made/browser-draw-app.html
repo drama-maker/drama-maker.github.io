@@ -90,8 +90,8 @@
       event.preventDefault();
       const touch = event.touches[0];
       const rect = canvas.getBoundingClientRect();
-      touchX = touch.clientX - rect.left;
-      touchY = touch.clientY - rect.top;
+      touchX = touch.clientX - rect.left - canvas.clientLeft;
+      touchY = touch.clientY - rect.top - canvas.clientTop;
       startDrawing({ clientX: touchX, clientY: touchY });
     }
     
