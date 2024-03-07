@@ -1,0 +1,43 @@
+Beginner:
+Interactive Profile Card:
+
+Toggle Button: Toggle between different sections of user information.
+Tooltip: Display additional details when hovering over specific elements.
+Animated Text: Use animated text for the user's name or tagline.
+Star Rating: Allow users to rate and display their rating on the profile card.
+Random Password Generator with Tooltip:
+
+Random Password Generator: Generate secure passwords.
+Tooltip: Provide tips on creating strong passwords when hovering over the generator.
+Task Manager with ToDo List:
+
+ToDo: Create a simple ToDo list with checkboxes.
+Animated Text: Use animated text for task completion.
+Tooltip: Show additional details when hovering over a task.
+Intermediate:
+Interactive Timeline with Card Flip:
+
+Timeline: Display events over time.
+Card Flip: Provide detailed information about each event with a card flip animation.
+Animated Progress Bar: Show progress or time elapsed for each event.
+Expense Tracker with Animated Progress Bar:
+
+Expense Tracker: Log and categorize expenses.
+Animated Progress Bar: Visualize budget utilization or savings progress.
+Word Cloud Quotes Generator:
+
+Random Quote Generator: Fetch and display quotes.
+Word Cloud Generator: Generate a word cloud based on frequently used words in quotes.
+Complex:
+Interactive Recipe Book with Drag and Drop Puzzle:
+
+Recipe Book: Display recipes with images and instructions.
+Drag and Drop Puzzle Game: Integrate a puzzle game related to cooking or ingredients.
+3D Cube Currency Converter:
+
+3D Cube: Implement a rotating 3D cube for a unique user interface.
+Currency Converter: Allow users to convert currencies with real-time exchange rates.
+Pomodoro Timer with Browser-Based Drawing App:
+
+Pomodoro Timer: Implement a timer for the Pomodoro technique.
+Browser-Based Drawing App: Allow users to doodle or sketch during breaks.
